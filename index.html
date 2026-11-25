@@ -1,0 +1,1566 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de apresentação — OS-Mobile</title>
+
+<style>
+
+:root {
+    --bg: #091b2c;
+    --panel: #163349;
+    --panel2: #10283c;
+    --line: #2b5068;
+    --text: #f4f7fb;
+    --muted: #bdccd7;
+    --teal: #19c5b3;
+    --gold: #ffb83f;
+    --green: #42d98b;
+    --coral: #ff7373;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrap {
+    width: min(1080px, 100% - 40px);
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+header {
+    padding: clamp(30px, 6vw, 55px) 0;
+    background: linear-gradient(135deg, #0d263b, #12344a);
+    border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+    color: var(--teal);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin: 12px 0;
+    overflow-wrap: break-word;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    line-height: 1.3;
+    margin: 0 0 8px;
+}
+
+h3 {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 8px 0;
+}
+
+.lead,
+.muted {
+    color: var(--muted);
+}
+
+/* MENU DE NAVEGAÇÃO */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 32, 50, 0.97);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    backdrop-filter: blur(10px);
+}
+
+nav .wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 3px;
+}
+
+nav a {
+    flex-shrink: 0;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    padding: 7px 13px;
+    font-size: 0.88rem;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: #15394a;
+}
+
+/* CONTEÚDO */
+
+main {
+    padding: 25px 0 60px;
+}
+
+section {
+    margin: clamp(30px, 5vw, 55px) 0;
+    scroll-margin-top: 90px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* CARDS */
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: clamp(15px, 3vw, 22px);
+    margin: 12px 0;
+    min-width: 0;
+    overflow-wrap: break-word;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.grid .card {
+    margin: 0;
+}
+
+.card:hover {
+    border-color: #47718b;
+    transform: translateY(-2px);
+}
+
+.accent {
+    border-left: 5px solid var(--teal);
+}
+
+.gold {
+    border-left-color: var(--gold);
+}
+
+.green {
+    border-left-color: var(--green);
+}
+
+.coral {
+    border-left-color: var(--coral);
+}
+
+/* ROTEIROS */
+
+.script {
+    background: var(--panel2);
+    border: 1px dashed #47718b;
+    border-radius: 12px;
+    padding: clamp(15px, 3vw, 22px);
+    margin: 12px 0;
+    overflow-wrap: break-word;
+}
+
+.script p {
+    margin: 0 0 12px;
+}
+
+.script p:last-child {
+    margin-bottom: 0;
+}
+
+/* BOTÕES */
+
+button {
+    max-width: 100%;
+    background: transparent;
+    color: #9ff4e9;
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+    padding: 11px 16px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #174b53;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.primary {
+    background: var(--teal);
+    color: #062329;
+    border: 0;
+    margin-top: 14px;
+}
+
+.primary:hover {
+    background: #61e4d5;
+}
+
+/* FLUXO */
+
+.flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.flow div {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.flow b {
+    display: block;
+    color: var(--teal);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* LISTAS */
+
+ol,
+ul {
+    padding-left: 24px;
+}
+
+li {
+    margin: 9px 0;
+    padding-left: 3px;
+}
+
+strong,
+b {
+    color: #fff;
+}
+
+/* AVISOS */
+
+.note {
+    background: #332b19;
+    border: 1px solid #705b2b;
+    color: #ffe5ac;
+    padding: 16px;
+    border-radius: 11px;
+    margin: 15px 0;
+}
+
+.status {
+    margin: 12px 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    margin-right: 9px;
+}
+
+/* PERGUNTAS */
+
+details {
+    background: #102a40;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 14px 17px;
+    margin: 10px 0;
+    overflow-wrap: break-word;
+}
+
+summary {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+details p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* SIMULADO */
+
+.quiz-question {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.quiz-question label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: var(--muted);
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.quiz-question input {
+    margin-top: 5px;
+    accent-color: var(--teal);
+    flex-shrink: 0;
+}
+
+#result {
+    font-weight: 700;
+    margin-top: 15px;
+    overflow-wrap: break-word;
+}
+
+/* RODAPÉ */
+
+footer {
+    text-align: center;
+    border-top: 1px solid var(--line);
+    padding: 22px 15px;
+    color: var(--muted);
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+
+    .wrap {
+        width: min(100% - 32px, 760px);
+    }
+
+    .flow {
+        grid-template-columns: 1fr;
+    }
+
+    .flow div {
+        text-align: left;
+    }
+
+    section {
+        margin: 35px 0;
+    }
+
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .wrap {
+        width: calc(100% - 28px);
+    }
+
+    header {
+        padding: 32px 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+    }
+
+    nav {
+        padding: 9px 0;
+    }
+
+    nav a {
+        font-size: 0.82rem;
+        padding: 7px 11px;
+    }
+
+    main {
+        padding-top: 12px;
+    }
+
+    section {
+        margin: 30px 0;
+    }
+
+    /* Um card por linha */
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .script {
+        padding: 15px;
+    }
+
+    .flow {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .flow div {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .note {
+        padding: 13px;
+    }
+
+    details {
+        padding: 13px;
+    }
+
+    ol,
+    ul {
+        padding-left: 20px;
+    }
+
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 360px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .wrap {
+        width: calc(100% - 22px);
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    nav a {
+        font-size: 0.76rem;
+        padding: 6px 9px;
+    }
+
+    .card {
+        padding: 13px;
+    }
+
+}
+
+/* IMPRESSÃO */
+
+@media print {
+
+    body {
+        background: white;
+        color: #111;
+        font-size: 12pt;
+    }
+
+    nav,
+    button {
+        display: none !important;
+    }
+
+    header {
+        background: white;
+        color: #111;
+    }
+
+    .card,
+    .script,
+    details,
+    .flow div {
+        background: white;
+        color: #111;
+        border: 1px solid #aaa;
+        box-shadow: none;
+    }
+
+    .muted,
+    .lead,
+    details p {
+        color: #333;
+    }
+
+    strong,
+    b {
+        color: #111;
+    }
+
+    section {
+        break-inside: avoid;
+    }
+
+    details:not([open]) > *:not(summary) {
+        display: block;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap">
+    <div class="kicker">Material de estudo • TCC</div>
+
+    <h1>Guia de apresentação do OS-Mobile</h1>
+
+    <p class="muted">
+        Material de apoio para estudar e apresentar os quatro slides:
+        tecnologias e ferramentas, comunicação entre as partes,
+        fluxo do cliente e fluxo administrativo.
+    </p>
+</div>
+</header>
+
+<nav>
+<div class="wrap">
+    <a href="#visao">Visão geral</a>
+    <a href="#tecnologias">Tecnologias</a>
+    <a href="#comunicacao">Comunicação</a>
+    <a href="#cliente">Fluxo do cliente</a>
+    <a href="#admin">Fluxo administrativo</a>
+    <a href="#banca">Perguntas</a>
+    <a href="#simulado">Simulado</a>
+</div>
+</nav>
+
+<main class="wrap">
+
+<!-- VISÃO GERAL -->
+
+<section id="visao">
+
+<h2>Antes de começar: entenda o OS-Mobile</h2>
+
+<p class="lead">
+    Os slides apresentam um sistema de gestão e acompanhamento
+    de Ordens de Serviço de manutenção de aparelhos.
+</p>
+
+<div class="grid">
+
+<article class="card accent">
+    <h3>Visão do cliente</h3>
+    <p>
+        O cliente se cadastra, registra o aparelho,
+        consulta a Ordem de Serviço, visualiza o orçamento
+        e responde à proposta.
+    </p>
+</article>
+
+<article class="card accent gold">
+    <h3>Visão administrativa</h3>
+    <p>
+        O administrador consulta as ordens, analisa as informações
+        do aparelho, informa o orçamento e acompanha o andamento
+        do serviço.
+    </p>
+</article>
+
+</div>
+
+<div class="note">
+    <strong>Ideia central:</strong>
+    o cliente utiliza o sistema para acompanhar sua solicitação;
+    a assistência utiliza o sistema para administrar as Ordens
+    de Serviço e os serviços realizados.
+</div>
+
+</section>
+
+<!-- TECNOLOGIAS -->
+
+<section id="tecnologias">
+
+<h2>1. Tecnologias e ferramentas</h2>
+
+<p class="lead">
+    O primeiro slide mostra quais tecnologias e ferramentas
+    foram utilizadas e a responsabilidade de cada uma.
+</p>
+
+<div class="grid">
+
+<article class="card accent">
+    <h3>HTML</h3>
+    <p>
+        Cria a estrutura das páginas, como títulos, textos,
+        campos de formulário e botões.
+    </p>
+</article>
+
+<article class="card accent">
+    <h3>CSS</h3>
+    <p>
+        Define a aparência das páginas: cores, fontes,
+        tamanhos, espaçamentos e organização dos elementos.
+    </p>
+</article>
+
+<article class="card accent">
+    <h3>JavaScript</h3>
+    <p>
+        Adiciona interatividade e comportamento às páginas,
+        permitindo que elas respondam às ações do usuário.
+    </p>
+</article>
+
+<article class="card accent gold">
+    <h3>Python</h3>
+    <p>
+        Linguagem utilizada no backend para desenvolver
+        a lógica executada no servidor.
+    </p>
+</article>
+
+<article class="card accent gold">
+    <h3>Flask</h3>
+    <p>
+        Framework de Python utilizado para criar o servidor
+        e os endpoints, isto é, as rotas da API.
+    </p>
+</article>
+
+<article class="card accent green">
+    <h3>MySQL</h3>
+    <p>
+        Banco de dados utilizado para armazenar
+        e organizar as informações do sistema.
+    </p>
+</article>
+
+<article class="card accent coral">
+    <h3>JWT</h3>
+    <p>
+        Padrão de token que pode ser utilizado na autenticação
+        para representar informações de uma sessão
+        ou usuário autenticado.
+    </p>
+</article>
+
+<article class="card accent coral">
+    <h3>Werkzeug</h3>
+    <p>
+        Biblioteca do ecossistema Python/Flask.
+        Entre seus recursos, oferece funções para gerar
+        e verificar hashes de senhas.
+    </p>
+</article>
+
+<article class="card">
+    <h3>Trello</h3>
+    <p>
+        Ajuda a equipe a organizar tarefas e acompanhar
+        o andamento do desenvolvimento.
+    </p>
+</article>
+
+<article class="card">
+    <h3>draw.io</h3>
+    <p>
+        Ferramenta utilizada para criar diagramas
+        e representar processos e estruturas visualmente.
+    </p>
+</article>
+
+<article class="card">
+    <h3>Figma</h3>
+    <p>
+        Ferramenta utilizada para criar protótipos das telas
+        e planejar a navegação e a aparência do sistema.
+    </p>
+</article>
+
+<article class="card">
+    <h3>Ferramentas de apoio</h3>
+    <p>
+        VS Code é o editor de código; Google Drive auxilia
+        no armazenamento e compartilhamento de arquivos;
+        Excalidraw permite criar desenhos e esquemas.
+    </p>
+</article>
+
+</div>
+
+<h3>Roteiro pronto para apresentar</h3>
+
+<div class="script" id="fala-tecnologias">
+
+<p>
+    Neste slide, apresentamos as principais tecnologias
+    e ferramentas utilizadas no desenvolvimento do OS-Mobile.
+</p>
+
+<p>
+    No frontend, utilizamos HTML para estruturar as páginas,
+    CSS para definir a aparência e JavaScript para adicionar
+    interatividade.
+</p>
+
+<p>
+    No backend, utilizamos Python com Flask, responsáveis
+    pela lógica do servidor e pela criação dos endpoints
+    da API. Para armazenar as informações, utilizamos o MySQL.
+</p>
+
+<p>
+    Também temos o JWT e o Werkzeug, relacionados à autenticação
+    e à segurança das senhas. Para organização, modelagem
+    e prototipação, utilizamos Trello, draw.io e Figma.
+    Como ferramentas de apoio, utilizamos VS Code,
+    Google Drive e Excalidraw.
+</p>
+
+</div>
+
+<button onclick="copiar('fala-tecnologias')">
+    Copiar roteiro
+</button>
+
+<details>
+<summary>
+    Se perguntarem: JWT e hash de senha são a mesma coisa?
+</summary>
+
+<p>
+    Não. JWT é um token utilizado em mecanismos de autenticação.
+    Hash de senha é uma representação protegida da senha,
+    usada para verificar a senha informada sem guardar
+    a senha original em texto puro. São conceitos diferentes.
+</p>
+</details>
+
+</section>
+
+<!-- COMUNICAÇÃO -->
+
+<section id="comunicacao">
+
+<h2>2. Como as partes se comunicam</h2>
+
+<p class="lead">
+    O segundo slide explica a comunicação entre frontend,
+    backend e banco de dados.
+</p>
+
+<div class="flow">
+
+<div>
+    <b>FRONTEND</b>
+    HTML • CSS • JavaScript
+    <p class="muted">
+        Parte visual com que o usuário interage.
+    </p>
+</div>
+
+<div>
+    <b>BACKEND</b>
+    Python • Flask • API
+    <p class="muted">
+        Recebe e processa as solicitações.
+    </p>
+</div>
+
+<div>
+    <b>BANCO DE DADOS</b>
+    MySQL
+    <p class="muted">
+        Armazena e fornece as informações.
+    </p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Exemplo: o cliente consulta uma Ordem de Serviço</h3>
+
+<ol>
+    <li>
+        O cliente abre a tela de consulta no frontend.
+    </li>
+
+    <li>
+        O frontend envia uma requisição HTTP
+        para um endpoint da API.
+    </li>
+
+    <li>
+        As informações podem ser organizadas
+        e transportadas em formato JSON.
+    </li>
+
+    <li>
+        O backend, desenvolvido com Python e Flask,
+        recebe a solicitação e executa a lógica necessária.
+    </li>
+
+    <li>
+        Quando precisa dos dados, o backend consulta
+        o banco MySQL.
+    </li>
+
+    <li>
+        O banco retorna os dados ao backend.
+    </li>
+
+    <li>
+        O backend envia uma resposta ao frontend,
+        que apresenta o resultado ao cliente.
+    </li>
+</ol>
+
+</div>
+
+<div class="grid">
+
+<article class="card accent">
+    <h3>HTTP</h3>
+    <p>
+        É o protocolo utilizado na comunicação entre aplicações
+        por meio de requisições e respostas.
+    </p>
+</article>
+
+<article class="card accent gold">
+    <h3>JSON</h3>
+    <p>
+        É um formato de dados usado para organizar
+        e transportar informações, por exemplo,
+        dados de uma Ordem de Serviço.
+    </p>
+</article>
+
+<article class="card accent green">
+    <h3>API e endpoint</h3>
+    <p>
+        A API permite a comunicação entre partes do sistema.
+        Um endpoint é uma rota específica que recebe
+        uma solicitação e executa uma operação.
+    </p>
+</article>
+
+<article class="card">
+    <h3>Por que o backend é necessário?</h3>
+    <p>
+        Ele processa as solicitações e aplica as regras
+        do sistema. Na arquitetura apresentada,
+        o frontend não acessa diretamente o banco de dados.
+    </p>
+</article>
+
+</div>
+
+<h3>Roteiro pronto para apresentar</h3>
+
+<div class="script" id="fala-comunicacao">
+
+<p>
+    Aqui mostramos como as três partes principais
+    do sistema se comunicam.
+</p>
+
+<p>
+    Primeiro, temos o frontend, que é a parte visual
+    onde o usuário realiza as ações. Quando o usuário
+    faz uma solicitação, o frontend envia uma requisição
+    HTTP para a API, utilizando JSON para organizar
+    e transportar os dados.
+</p>
+
+<p>
+    O backend, desenvolvido com Python e Flask,
+    recebe essa requisição, valida e processa as informações.
+    Quando necessário, consulta ou atualiza o banco
+    de dados MySQL.
+</p>
+
+<p>
+    Depois, o backend envia uma resposta ao frontend,
+    onde o resultado é apresentado ao usuário.
+</p>
+
+</div>
+
+<button onclick="copiar('fala-comunicacao')">
+    Copiar roteiro
+</button>
+
+</section>
+
+<!-- FLUXO CLIENTE -->
+
+<section id="cliente">
+
+<h2>3. Fluxo do cliente</h2>
+
+<p class="lead">
+    O terceiro slide mostra a sequência de ações
+    que o cliente realiza dentro do OS-Mobile.
+</p>
+
+<div class="card">
+
+<ol>
+
+<li>
+    <strong>Cadastro e login:</strong>
+    o cliente cria uma conta e acessa o sistema.
+</li>
+
+<li>
+    <strong>Registro do aparelho:</strong>
+    informa os dados do aparelho que deseja encaminhar
+    para manutenção.
+</li>
+
+<li>
+    <strong>Consulta da ordem:</strong>
+    consulta as informações da sua Ordem de Serviço.
+</li>
+
+<li>
+    <strong>Visualização do orçamento:</strong>
+    verifica o valor informado pela assistência.
+</li>
+
+<li>
+    <strong>Resposta ao orçamento:</strong>
+    informa se aceita ou não o orçamento apresentado.
+</li>
+
+</ol>
+
+</div>
+
+<div class="grid">
+
+<article class="card accent">
+    <h3>Acompanhamento</h3>
+    <p>
+        O cliente consulta suas informações e o status
+        da solicitação para acompanhar o andamento
+        da Ordem de Serviço.
+    </p>
+</article>
+
+<article class="card accent gold">
+    <h3>Contato</h3>
+    <p>
+        O sistema oferece um atalho para abrir o WhatsApp
+        com os dados da ordem preenchidos,
+        facilitando o contato.
+    </p>
+</article>
+
+</div>
+
+<h3>Roteiro pronto para apresentar</h3>
+
+<div class="script" id="fala-cliente">
+
+<p>
+    Neste slide, apresentamos o fluxo do cliente
+    dentro do OS-Mobile.
+</p>
+
+<p>
+    Primeiro, ele realiza o cadastro e o login.
+    Depois, registra o aparelho que deseja enviar
+    para manutenção.
+</p>
+
+<p>
+    Em seguida, pode consultar sua Ordem de Serviço
+    e visualizar o orçamento informado pela assistência.
+    Após visualizar o valor, o cliente pode responder
+    se aceita ou não o orçamento.
+</p>
+
+<p>
+    Além disso, o sistema permite acompanhar o status
+    da solicitação e disponibiliza um atalho para entrar
+    em contato pelo WhatsApp, com os dados da ordem preenchidos.
+</p>
+
+</div>
+
+<button onclick="copiar('fala-cliente')">
+    Copiar roteiro
+</button>
+
+<div class="note">
+    <strong>Para memorizar:</strong>
+    o foco do fluxo do cliente é registrar o aparelho,
+    consultar a ordem, visualizar o orçamento e responder.
+</div>
+
+</section>
+
+<!-- FLUXO ADMINISTRATIVO -->
+
+<section id="admin">
+
+<h2>4. Fluxo administrativo</h2>
+
+<p class="lead">
+    O quarto slide mostra as atividades realizadas
+    pela assistência técnica ou pelo responsável administrativo.
+</p>
+
+<div class="card">
+
+<ol>
+
+<li>
+    <strong>Receber e consultar as Ordens de Serviço:</strong>
+    visualizar as ordens cadastradas pelos clientes.
+</li>
+
+<li>
+    <strong>Analisar as informações do aparelho:</strong>
+    verificar os dados do aparelho e o problema informado.
+</li>
+
+<li>
+    <strong>Informar o valor do orçamento:</strong>
+    registrar o valor que será apresentado ao cliente.
+</li>
+
+<li>
+    <strong>Acompanhar a resposta do cliente:</strong>
+    verificar se o cliente aceitou ou não o orçamento.
+</li>
+
+<li>
+    <strong>Atualizar e acompanhar os registros do serviço:</strong>
+    manter as informações e o andamento do atendimento atualizados.
+</li>
+
+</ol>
+
+</div>
+
+<h3>Os três status das solicitações</h3>
+
+<div class="card">
+
+<p class="status">
+    <span class="dot" style="background:var(--gold)"></span>
+    <strong>PENDENTES:</strong>
+    solicitações que aguardam ação.
+</p>
+
+<p class="status">
+    <span class="dot" style="background:var(--teal)"></span>
+    <strong>EM EXECUÇÃO:</strong>
+    serviços que estão em andamento.
+</p>
+
+<p class="status">
+    <span class="dot" style="background:var(--green)"></span>
+    <strong>FINALIZADOS:</strong>
+    serviços que já foram concluídos.
+</p>
+
+</div>
+
+<h3>Roteiro pronto para apresentar</h3>
+
+<div class="script" id="fala-admin">
+
+<p>
+    Agora temos o fluxo administrativo, que representa
+    as atividades realizadas pela assistência técnica.
+</p>
+
+<p>
+    Primeiro, o administrador recebe e consulta
+    as Ordens de Serviço cadastradas pelos clientes.
+    Depois, analisa as informações do aparelho
+    e informa o valor do orçamento.
+</p>
+
+<p>
+    Em seguida, acompanha a resposta do cliente
+    para saber se ele aceitou ou não o valor apresentado.
+    Por fim, atualiza os registros e acompanha
+    o andamento dos serviços.
+</p>
+
+<p>
+    Para facilitar esse controle, o sistema organiza
+    as solicitações em três status: pendentes,
+    em execução e finalizados. Assim, o administrador
+    consegue identificar quais serviços aguardam uma ação,
+    quais estão em andamento e quais já foram concluídos.
+</p>
+
+</div>
+
+<button onclick="copiar('fala-admin')">
+    Copiar roteiro
+</button>
+
+<div class="note">
+    <strong>Para memorizar:</strong>
+    o foco administrativo é consultar, analisar,
+    informar o orçamento, acompanhar a resposta
+    e atualizar os registros.
+</div>
+
+</section>
+
+<!-- PERGUNTAS DA BANCA -->
+
+<section id="banca">
+
+<h2>Perguntas que podem aparecer na banca</h2>
+
+<p class="lead">
+    Abra cada pergunta para estudar uma resposta curta.
+</p>
+
+<details>
+<summary>1. Qual é a diferença entre frontend e backend?</summary>
+<p>
+    Frontend é a parte visual com que o usuário interage.
+    Backend é responsável pela lógica do sistema,
+    pelo processamento das solicitações e pela
+    comunicação com o banco.
+</p>
+</details>
+
+<details>
+<summary>2. O que é uma API?</summary>
+<p>
+    É uma interface que permite a comunicação entre
+    partes do sistema. No projeto, recebe solicitações
+    do frontend e retorna respostas.
+</p>
+</details>
+
+<details>
+<summary>3. Para que serve o MySQL?</summary>
+<p>
+    Para armazenar e organizar as informações
+    utilizadas pelo sistema.
+</p>
+</details>
+
+<details>
+<summary>4. O que é Flask?</summary>
+<p>
+    É um framework de Python que facilita a criação
+    do servidor e das rotas da API.
+</p>
+</details>
+
+<details>
+<summary>5. Para que serve o JWT?</summary>
+<p>
+    É um padrão de token que pode ser utilizado
+    em mecanismos de autenticação e controle de acesso.
+</p>
+</details>
+
+<details>
+<summary>6. Para que serve o Werkzeug?</summary>
+<p>
+    É uma biblioteca do ecossistema Flask que oferece,
+    entre outros recursos, funções para gerar
+    e verificar hashes de senhas.
+</p>
+</details>
+
+<details>
+<summary>7. O que é uma requisição HTTP?</summary>
+<p>
+    É uma solicitação enviada de uma aplicação para outra,
+    como uma solicitação do frontend para o backend.
+</p>
+</details>
+
+<details>
+<summary>8. O que é JSON?</summary>
+<p>
+    É um formato usado para organizar e transportar
+    dados de maneira estruturada.
+</p>
+</details>
+
+<details>
+<summary>9. Qual é a diferença entre o fluxo do cliente e o administrativo?</summary>
+<p>
+    O cliente registra o aparelho, consulta a ordem
+    e responde ao orçamento. O administrador gerencia
+    as ordens, analisa os aparelhos, informa orçamentos
+    e acompanha os serviços.
+</p>
+</details>
+
+<details>
+<summary>10. Por que existem três status?</summary>
+<p>
+    Para facilitar a organização e o acompanhamento:
+    separar solicitações que aguardam ação,
+    serviços em andamento e serviços concluídos.
+</p>
+</details>
+
+<details>
+<summary>11. O frontend acessa diretamente o banco de dados?</summary>
+<p>
+    Na arquitetura apresentada, não. O frontend envia
+    solicitações à API; o backend processa e acessa
+    o MySQL quando necessário.
+</p>
+</details>
+
+<details>
+<summary>12. O que acontece depois que o cliente responde ao orçamento?</summary>
+<p>
+    O administrador acompanha a resposta e atualiza
+    os registros do serviço conforme o andamento
+    do atendimento. O slide não detalha outras regras
+    para cada tipo de resposta.
+</p>
+</details>
+
+</section>
+
+<!-- SIMULADO -->
+
+<section id="simulado">
+
+<h2>Simulado para treinar</h2>
+
+<p class="lead">
+    Responda sem olhar o material e depois confira.
+</p>
+
+<form id="quiz">
+
+<div class="quiz-question">
+
+<strong>
+    1. Qual tecnologia é usada para armazenar os dados?
+</strong>
+
+<label>
+    <input type="radio" name="q1" value="a">
+    CSS
+</label>
+
+<label>
+    <input type="radio" name="q1" value="b">
+    MySQL
+</label>
+
+<label>
+    <input type="radio" name="q1" value="c">
+    Figma
+</label>
+
+</div>
+
+<div class="quiz-question">
+
+<strong>2. Qual é a função do Flask?</strong>
+
+<label>
+    <input type="radio" name="q2" value="a">
+    Criar protótipos
+</label>
+
+<label>
+    <input type="radio" name="q2" value="b">
+    Estilizar páginas
+</label>
+
+<label>
+    <input type="radio" name="q2" value="c">
+    Ajudar a criar o servidor e as rotas da API
+</label>
+
+</div>
+
+<div class="quiz-question">
+
+<strong>3. Qual é o caminho geral de uma solicitação?</strong>
+
+<label>
+    <input type="radio" name="q3" value="a">
+    Frontend → API/backend → banco de dados → resposta ao frontend
+</label>
+
+<label>
+    <input type="radio" name="q3" value="b">
+    MySQL → Figma → Trello
+</label>
+
+<label>
+    <input type="radio" name="q3" value="c">
+    CSS → WhatsApp → draw.io
+</label>
+
+</div>
+
+<div class="quiz-question">
+
+<strong>4. O que o cliente faz no fluxo dele?</strong>
+
+<label>
+    <input type="radio" name="q4" value="a">
+    Gerencia todos os serviços da assistência
+</label>
+
+<label>
+    <input type="radio" name="q4" value="b">
+    Registra o aparelho, consulta a OS e responde ao orçamento
+</label>
+
+<label>
+    <input type="radio" name="q4" value="c">
+    Altera a estrutura do banco de dados
+</label>
+
+</div>
+
+<div class="quiz-question">
+
+<strong>5. O que significa "Em execução"?</strong>
+
+<label>
+    <input type="radio" name="q5" value="a">
+    Solicitação aguardando ação
+</label>
+
+<label>
+    <input type="radio" name="q5" value="b">
+    Serviço concluído
+</label>
+
+<label>
+    <input type="radio" name="q5" value="c">
+    Serviço em andamento
+</label>
+
+</div>
+
+<button class="primary" type="button" onclick="corrigir()">
+    Corrigir respostas
+</button>
+
+<div id="result" aria-live="polite"></div>
+
+</form>
+
+</section>
+
+<!-- RESUMO -->
+
+<section>
+
+<h2>Resumo rápido para memorizar</h2>
+
+<div class="grid">
+
+<div class="card accent">
+    <h3>Slide 1 — Tecnologias</h3>
+    <p>
+        HTML estrutura; CSS estiliza; JavaScript interage;
+        Python e Flask fazem o backend; MySQL armazena;
+        JWT e Werkzeug apoiam autenticação e segurança;
+        Trello, draw.io e Figma ajudam na organização,
+        modelagem e prototipação.
+    </p>
+</div>
+
+<div class="card accent gold">
+    <h3>Slide 2 — Comunicação</h3>
+    <p>
+        O frontend envia requisições HTTP à API;
+        o backend processa e conversa com o MySQL;
+        a resposta volta ao frontend.
+    </p>
+</div>
+
+<div class="card accent">
+    <h3>Slide 3 — Cliente</h3>
+    <p>
+        Cadastro e login → registro do aparelho →
+        consulta da ordem → visualização do orçamento →
+        resposta.
+    </p>
+</div>
+
+<div class="card accent green">
+    <h3>Slide 4 — Administrativo</h3>
+    <p>
+        Consultar ordens → analisar aparelho →
+        informar orçamento → acompanhar resposta →
+        atualizar registros.
+    </p>
+</div>
+
+</div>
+
+<div class="note">
+    <strong>Dica final:</strong>
+    não tente decorar cada palavra. Entenda a função
+    de cada parte e explique como se estivesse contando
+    o funcionamento do sistema para alguém que nunca o viu.
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    Guia de estudo • OS-Mobile • Material de apoio para apresentação do TCC
+</footer>
+
+<script>
+
+function copiar(id) {
+
+    const texto = [
+        ...document.getElementById(id).querySelectorAll('p')
+    ].map(p => p.innerText).join('\n\n');
+
+    if (navigator.clipboard && window.isSecureContext) {
+
+        navigator.clipboard.writeText(texto)
+            .then(() => alert('Roteiro copiado!'))
+            .catch(() => alert('Não foi possível copiar automaticamente. Selecione o texto e copie.'));
+
+    } else {
+
+        alert('Selecione o texto do roteiro e copie manualmente.');
+
+    }
+}
+
+function corrigir() {
+
+    const g = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'a',
+        q4: 'b',
+        q5: 'c'
+    };
+
+    let n = 0;
+    let respondidas = 0;
+
+    for (const [k, v] of Object.entries(g)) {
+
+        const x = document.querySelector(
+            'input[name="' + k + '"]:checked'
+        );
+
+        if (x) {
+
+            respondidas++;
+
+            if (x.value === v) {
+                n++;
+            }
+
+        }
+    }
+
+    const r = document.getElementById('result');
+
+    if (respondidas !== 5) {
+
+        r.textContent = 'Você respondeu ' +
+            respondidas +
+            ' de 5. Responda todas para conferir.';
+
+        return;
+    }
+
+    r.textContent = 'Você acertou ' + n +
+        ' de 5! ' +
+        (n === 5
+            ? 'Muito bem!'
+            : 'Revise os tópicos e tente novamente.');
+}
+
+</script>
+
+</body>
+</html>
